@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Data</title>
+    
+</head>
+<body>
+    <h2>Pokemon Data</h2>
+    {% if pokemon_data %}
+        <p>Name: {{ pokemon_data['name'] }}</p>
+        <p>Base Stat (HP): {{ pokemon_data['base_stat_hp'] }}</p>
+        <p>Base Stat (Attack): {{ pokemon_data['base_stat_attack'] }}</p>
+        <p>Base Stat (Defense): {{ pokemon_data['base_stat_defense'] }}</p>
+        <p>Ability: {{ pokemon_data['ability'] }}</p>
+        <p>Base Experience: {{ pokemon_data['base_experience'] }}</p>
+        <p>Sprite: <img src="{{ pokemon_data['sprite_url'] }}" alt="Sprite"></p>
+    {% else %}
+        <p>Invalid Pokemon Name. Please try again.</p>
+    {% endif %}
+    
+    
+</body>
+</html>
