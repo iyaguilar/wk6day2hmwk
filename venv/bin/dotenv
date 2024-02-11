@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/yeseniaaguilar/Desktop/Coding Temple WK Folders/Week 5/APP folder/venv/bin/python3.11" "$0" "$@"
+'''exec' "/Users/yeseniaaguilar/Desktop/Coding Temple WK Folders/Week 5/APP2 folder/venv/bin/python3.11" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
