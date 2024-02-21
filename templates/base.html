@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{%block title%}Home{%endblock%}</title>
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
      <h1>Welcome to Pokemon App!</h1>
@@ -15,19 +15,33 @@
 <nav>
     <ul>
         <li><a href="{{ url_for('home') }}">Home</a></li>
+        {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% else %}
         <li><a href="{{ url_for('login') }}">Login</a></li>
         <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+        {% endif %}
 
 
     </ul>
 
 
 </nav>
-
 <div id="content">
-    {%block content%}
-    <h2>Welcome to Pokemon App!</h2>
-    {%endblock%}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li class="flash-message {{ message[1] }}">{{ message[0] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <div id="content">
+        {%block content%}
+        <h2>Welcome to Pokemon App!</h2>
+        {%endblock%}
 
 </div>
 </html>
