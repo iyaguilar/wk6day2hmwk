@@ -21,5 +21,22 @@ class User(db.Model, UserMixin):
         db.session.add(self)
         db.session.commit()
 
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    img_url = db.Column(db.String, nullable=False)
+    name = db.Column(db.String(255), unique=True, nullable=False)
+    base_hp = db.Column(db.Integer)
+    base_attack = db.Column(db.Integer)
+    base_defense = db.Column(db.Integer)
+    sprite_img = db.Column(db.String(255))
+
+    def __init__(self, img_url):
+        self.img_url = img_url
+    
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+
 
 
