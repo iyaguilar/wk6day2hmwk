@@ -14,7 +14,7 @@ def home():
 
 @main.route("/pokemon", methods=["GET", "POST"])
 def pokemon():
-    form = PokemonForm()
+    form = PokemonForm() 
     
     if request.method == "POST" and form.validate_on_submit():
         pokemon_name = form.pokemon_name.data

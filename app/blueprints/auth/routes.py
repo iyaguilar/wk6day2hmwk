@@ -8,8 +8,7 @@ from flask_login import login_required
 
 from ..auth.forms import LoginForm, SignupForm
 from flask import render_template, request
-
-auth = Blueprint('auth', __name__, template_folder='templates')
+from . import auth
 
 
 #routes
@@ -47,7 +46,7 @@ def login():
         email = form.email.data
         password = form.password.data
         flash('Login successful', 'success')
-        return redirect (url_for('login'))
+        return redirect (url_for('home'))
     else:
 
         return render_template('login.html', form=form)
