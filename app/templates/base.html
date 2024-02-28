@@ -10,11 +10,12 @@
      <h1>Welcome to Pokemon App!</h1>
     
     
-</body>
+
 
 <nav>
     <ul>
         <li><a href="{{ url_for('main.home') }}">Home</a></li>
+        <li><a href="{{ url_for('main.pokemon') }}">Find a Pokemon</a></li>
         {% if current_user.is_authenticated %}
         <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
         {% else %}
@@ -44,4 +45,5 @@
         {%endblock%}
 
 </div>
+</body>
 </html>

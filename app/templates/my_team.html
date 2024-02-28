@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}My Team{% endblock %}
+
+{% block content %}
+    <h1>My Pokemon Team</h1>
+    {% if user.team %}
+        <ul>
+            {% for pokemon in user.team %}
+                <li>{{ pokemon.name }} - {{ pokemon.level }} - <a href="{{ url_for('main.release_pokemon', pokemon_id=pokemon.id) }}">Release</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You don't have any Pokemon in your team yet.</p>
+    {% endif %}
+{% endblock %}

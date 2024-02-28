@@ -1,9 +1,9 @@
 from flask import Blueprint, request, render_template, url_for, flash, redirect
 from flask_login import login_user, logout_user
 from werkzeug.security import check_password_hash
-from app.models import User
+from app.models import Pokemon, User, db
 from flask_login import LoginManager
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 
 from ..auth.forms import LoginForm, SignupForm
@@ -51,8 +51,17 @@ def login():
 
         return render_template('login.html', form=form)
     
-
-
+@auth.route('/login', methods= ['GET', 'POST'])
+def current_user_id():
+    
+    #Function to get the ID of the current logged-in user using Flask-Login.
+    
+    if current_user.is_authenticated:
+        return current_user.id
+    else:
+        # Handle the case when no user is authenticated
+        # redirection to login page
+        return None
 
 
 

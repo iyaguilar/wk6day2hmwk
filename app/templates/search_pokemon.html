@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Pokemon{% endblock %}
+
+{% block content %}
+    <h1>Search Pokemon</h1>
+    <form method="POST" action="{{ url_for('main.search_pokemon') }}">
+        {{ form.hidden_tag() }}
+        <label for="pokemon_name">Pokemon Name:</label>
+        {{ form.pokemon_name(class="form-control", placeholder="Enter Pokemon Name") }}
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>

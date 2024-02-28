@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle</title>
+    
+</head>
+<body>
+    <h2>Battle</h2>
+    {% if pokemon_battle %}
+        <p>Name: {{ pokemon_data['name'] }}</p>
+        <p>Attack: {{ user_attack_sum }}</p>
+        <p>Opponent Attack: {{ opponent_attack_sum }}</p>
+        <p>Base Stat (HP): {{ pokemon_data['base_stat_hp'] }}</p>
+        <p>Base Stat (Attack): {{ pokemon_data['base_stat_attack'] }}</p>
+        <p>Base Stat (Defense): {{ pokemon_data['base_stat_defense'] }}</p>
+        <p>Ability: {{ pokemon_data['ability'] }}</p>
+        <p>Base Experience: {{ pokemon_data['base_experience'] }}</p>
+        <p>Sprite: <img src="{{ pokemon_data['sprite_url'] }}" alt="Sprite"></p>
+    {% else %}
+        <p>Invalid Pokemon Name. Please try again.</p>
+    
+    {% endif %}
+
+    <!-- Button for battle -->
+    <form method="POST" action="/battle">
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        {{ form.selected_pokemon.label }}
+        {{ form.selected_pokemon }}
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+    
+    
+</body>
+</html>

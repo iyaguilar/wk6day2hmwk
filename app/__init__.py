@@ -16,7 +16,7 @@ login_manager.init_app(app)
 db.init_app(app)
 migrate = Migrate(app, db)
 @login_manager.user_loader
-def load_user(user_id):
+def user_id(user_id):
     return User.query.get(int(user_id))
 from .blueprints.main import main
 print(main)
